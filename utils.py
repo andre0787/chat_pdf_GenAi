@@ -3,7 +3,8 @@ from pathlib import Path
 
 import streamlit as st
 
-from langchain.chains.conversational_retrieval.base import ConversationalRetrievalChain
+from langchain.chains.retrieval import ConversationalRetrievalChain
+
 from langchain.memory import ConversationBufferMemory
 from langchain.prompts import PromptTemplate
 from langchain_community.document_loaders.pdf import PyPDFLoader
@@ -67,7 +68,7 @@ def cria_chain_conversa():
     )
     retriver = vector_store.as_retriever(
         search_type = get_config('retrieval_search_type'),
-        searcg_args = get_config('retrieval_kwargs')
+        search_args = get_config('retrieval_kwargs')
     )
     prompt_template = PromptTemplate.from_template(get_config('prompt'))
     
