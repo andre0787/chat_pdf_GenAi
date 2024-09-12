@@ -2,7 +2,7 @@
 import streamlit as st
 
 MODEL_NAME = "gpt-4o-mini"
-RETRIEVEL_SEARCH_TYOE = 'mmr'
+RETRIEVEL_SEARCH_TYPE = 'mmr'
 RETRIEVEL_KWARGS = {'k': 3, "fetch_k":20}
 PROMPT = ''' Vocé é um Chatbot amigávl que auxilia o usuário na interpretacao de documentos que lhe são forncecidos.
 No contexto fornecido estão informações dos documentos do usuário. Utilize o contexto para responder as perguntas do usuário.
@@ -27,7 +27,7 @@ def get_config(config_name):
         return MODEL_NAME
     
     if config_name.lower() == 'retrieval_search_type':
-        return RETRIEVEL_SEARCH_TYOE
+        return RETRIEVEL_SEARCH_TYPE
 
     
     if config_name.lower() == 'retrieval_kwargs':
