@@ -1,12 +1,11 @@
-
 import streamlit as st
 
 MODEL_NAME = "gpt-4o-mini"
-RETRIEVEL_SEARCH_TYPE = 'mmr'
-RETRIEVEL_KWARGS = {'k': 3, "fetch_k":20}
-PROMPT = ''' Vocé é um Chatbot amigávl que auxilia o usuário na interpretacao de documentos que lhe são forncecidos.
+RETRIEVEL_SEARCH_TYOE = 'mmr'
+RETRIEVEL_KWARGS = {'k': 3, "fetch_k": 20}
+PROMPT = ''' Você é um Chatbot amigável que auxilia o usuário na interpretação de documentos que lhe são fornecidos.
 No contexto fornecido estão informações dos documentos do usuário. Utilize o contexto para responder as perguntas do usuário.
-Se voce nao sabe a resposta, diga apenas que nao sabe e nao tente inventar a resposta
+Se você não sabe a resposta, diga apenas que não sabe e não tente inventar a resposta.
 
 Contexto:
 {context}
@@ -17,8 +16,6 @@ Conversa atual:
 Human:? {question}:
 AI: '''
 
-
-
 def get_config(config_name):
     if config_name.lower() in st.session_state:
         return st.session_state[config_name.lower()]
@@ -27,18 +24,10 @@ def get_config(config_name):
         return MODEL_NAME
     
     if config_name.lower() == 'retrieval_search_type':
-        return RETRIEVEL_SEARCH_TYPE
+        return RETRIEVEL_SEARCH_TYOE
 
-    
     if config_name.lower() == 'retrieval_kwargs':
         return RETRIEVEL_KWARGS
 
     if config_name.lower() == 'prompt':
         return PROMPT
-
-
-
-
-
-
-
